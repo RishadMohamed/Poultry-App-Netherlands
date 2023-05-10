@@ -81,7 +81,6 @@ class _FlockRegScreenState extends State<FlockRegScreen> {
                   const SizedBox(
                     height: 20,
                   ),
-
                   reusableTextField2("Enter the number of chickens".tr,
                       Icons.numbers, false, _numberController, null, ""),
                   const SizedBox(
@@ -234,7 +233,8 @@ class _FlockRegScreenState extends State<FlockRegScreen> {
                                       ),
                                       textButtonTheme: TextButtonThemeData(
                                         style: TextButton.styleFrom(
-                                          foregroundColor: mPrimaryColor, // button text color
+                                          foregroundColor:
+                                              mPrimaryColor, // button text color
                                         ),
                                       ),
                                     ),
@@ -246,7 +246,8 @@ class _FlockRegScreenState extends State<FlockRegScreen> {
                               setState(() => bdate = ndate);
                             },
                             style: ElevatedButton.styleFrom(
-                              fixedSize: const Size(180, 50), backgroundColor: mBackgroundColor,
+                              fixedSize: const Size(180, 50),
+                              backgroundColor: mBackgroundColor,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(30.0),
                                   side: BorderSide(

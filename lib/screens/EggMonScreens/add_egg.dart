@@ -13,22 +13,21 @@ class AddEggScreen extends StatefulWidget {
   final String id_flock;
   final String startDateNavi;
   final String strainNavi;
-  const AddEggScreen({Key? key, required this.id_flock, required this.startDateNavi, required this.strainNavi}) : super(key: key);
+  const AddEggScreen(
+      {Key? key,
+      required this.id_flock,
+      required this.startDateNavi,
+      required this.strainNavi})
+      : super(key: key);
 
   @override
   State<AddEggScreen> createState() => _AddEggScreenState();
 }
 
-class _AddEggScreenState extends State<AddEggScreen> with TickerProviderStateMixin {
+class _AddEggScreenState extends State<AddEggScreen>
+    with TickerProviderStateMixin {
   DateTime date =
-  DateTime(DateTime
-      .now()
-      .year, DateTime
-      .now()
-      .month, DateTime
-      .now()
-      .day);
-
+      DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day);
 
   final TextEditingController _firstEggs = TextEditingController();
   final TextEditingController _secondEggs = TextEditingController();
@@ -45,7 +44,6 @@ class _AddEggScreenState extends State<AddEggScreen> with TickerProviderStateMix
 
   @override
   void initState() {
-
     _animationController = AnimationController(
       vsync: this,
       duration: Duration(milliseconds: 500),
@@ -55,8 +53,6 @@ class _AddEggScreenState extends State<AddEggScreen> with TickerProviderStateMix
 
   @override
   Widget build(BuildContext context) {
-
-
     return Stack(children: [
       DrawerMenu(widget.id_flock),
       AnimatedContainer(
@@ -67,7 +63,7 @@ class _AddEggScreenState extends State<AddEggScreen> with TickerProviderStateMix
           onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
           child: ClipRRect(
             borderRadius:
-            (toggle) ? BorderRadius.circular(20) : BorderRadius.circular(0),
+                (toggle) ? BorderRadius.circular(20) : BorderRadius.circular(0),
             child: Scaffold(
               appBar: AppBar(
                 leading: IconButton(
@@ -90,8 +86,9 @@ class _AddEggScreenState extends State<AddEggScreen> with TickerProviderStateMix
                       }
                       setState(() {});
                     }),
-                title: Text("Add Weekly Egg Data".tr
-                  ,style: TextStyle(fontSize: 22),
+                title: Text(
+                  "Add Weekly Egg Data".tr,
+                  style: TextStyle(fontSize: 22),
                 ),
                 backgroundColor: mPrimaryColor,
               ),
@@ -100,13 +97,9 @@ class _AddEggScreenState extends State<AddEggScreen> with TickerProviderStateMix
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-
                     SizedBox(
                       height: 20.0,
                     ),
-
-
-
                     Row(
                       children: [
                         Expanded(
@@ -119,7 +112,6 @@ class _AddEggScreenState extends State<AddEggScreen> with TickerProviderStateMix
                             ),
                           ),
                         ),
-
                         Expanded(
                           child: Padding(
                             padding: EdgeInsets.only(right: 1.h),
@@ -167,58 +159,78 @@ class _AddEggScreenState extends State<AddEggScreen> with TickerProviderStateMix
                             ),
                           ),
                         ),
-
-
                       ],
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 6.0, vertical: 20.0),
+                        horizontal: 6.0,
+                        vertical: 20.0,
+                      ),
                       //child: reuseTextField1("Number of chicks"),
 
-                      child: reusableTextField2("Enter Number of first grade eggs".tr,
-                          Icons.numbers, false, _firstEggs, null, ""),
+                      child: reusableTextField2(
+                          "Avg. Weight of First Grade Egg".tr,
+                          Icons.monitor_weight,
+                          false,
+                          _firstEggWeight,
+                          null,
+                          ""),
                     ),
-
-
                     Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 6.0, ),
+                        horizontal: 6.0,
+                      ),
                       //child: reuseTextField1("Number of chicks"),
 
-                      child: reusableTextField2("Enter Number of Second grade eggs".tr,
-                          Icons.numbers, false, _secondEggs, null, ""),
+                      child: reusableTextField2(
+                          "Enter Number of first grade eggs".tr,
+                          Icons.numbers,
+                          false,
+                          _firstEggs,
+                          null,
+                          ""),
                     ),
-
                     Padding(
                       padding: const EdgeInsets.symmetric(
-                        horizontal: 6.0, vertical: 20),
+                        horizontal: 6.0,
+                        vertical: 20.0,
+                      ),
                       //child: reuseTextField1("Number of chicks"),
 
-                      child: reusableTextField2("Avg. Weight of First Grade Egg".tr,
-                          Icons.monitor_weight, false, _firstEggWeight, null, ""),
+                      child: reusableTextField2(
+                          "Avg. Weight of Second Grade Egg".tr,
+                          Icons.monitor_weight,
+                          false,
+                          _secondEggWeight,
+                          null,
+                          ""),
                     ),
-
                     Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 6.0,),
+                        horizontal: 6.0,
+                      ),
                       //child: reuseTextField1("Number of chicks"),
 
-                      child: reusableTextField2("Avg. Weight of Second Grade Egg".tr,
-                          Icons.monitor_weight, false, _secondEggWeight, null, ""),
+                      child: reusableTextField2(
+                          "Enter Number of Second grade eggs".tr,
+                          Icons.numbers,
+                          false,
+                          _secondEggs,
+                          null,
+                          ""),
                     ),
-
                     SizedBox(
                       height: 20,
                     ),
                     Padding(
-                      padding: EdgeInsets.only(left: 10,right: 10,bottom: 10),
+                      padding: EdgeInsets.only(left: 10, right: 10, bottom: 10),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
                             "Selected Week to add",
-                            style: TextStyle(fontSize: 15, color: mPrimaryColor),
+                            style:
+                                TextStyle(fontSize: 15, color: mPrimaryColor),
                           ),
                           Container(
                             alignment: Alignment.center,
@@ -238,15 +250,15 @@ class _AddEggScreenState extends State<AddEggScreen> with TickerProviderStateMix
                         ],
                       ),
                     ),
-
                     Padding(
-                      padding: EdgeInsets.only(left: 10,right: 10),
+                      padding: EdgeInsets.only(left: 10, right: 10),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
                             "Number of first grade Eggs added",
-                            style: TextStyle(fontSize: 15, color: mPrimaryColor),
+                            style:
+                                TextStyle(fontSize: 15, color: mPrimaryColor),
                           ),
                           Container(
                             alignment: Alignment.center,
@@ -266,15 +278,15 @@ class _AddEggScreenState extends State<AddEggScreen> with TickerProviderStateMix
                         ],
                       ),
                     ),
-
                     Padding(
-                      padding: EdgeInsets.only(left: 10,right: 10,top: 10),
+                      padding: EdgeInsets.only(left: 10, right: 10, top: 10),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
                             "Number of second grade Eggs added",
-                            style: TextStyle(fontSize: 15, color: mPrimaryColor),
+                            style:
+                                TextStyle(fontSize: 15, color: mPrimaryColor),
                           ),
                           Container(
                             alignment: Alignment.center,
@@ -294,15 +306,15 @@ class _AddEggScreenState extends State<AddEggScreen> with TickerProviderStateMix
                         ],
                       ),
                     ),
-
                     Padding(
-                      padding: EdgeInsets.only(left: 10,right: 10,top: 10),
+                      padding: EdgeInsets.only(left: 10, right: 10, top: 10),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
                             "Average Weight of first grade Egg",
-                            style: TextStyle(fontSize: 15, color: mPrimaryColor),
+                            style:
+                                TextStyle(fontSize: 15, color: mPrimaryColor),
                           ),
                           Container(
                             alignment: Alignment.center,
@@ -322,15 +334,15 @@ class _AddEggScreenState extends State<AddEggScreen> with TickerProviderStateMix
                         ],
                       ),
                     ),
-
                     Padding(
-                      padding: EdgeInsets.only(left: 10,right: 10,top: 10),
+                      padding: EdgeInsets.only(left: 10, right: 10, top: 10),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
                             "Average Weight of second grade Egg",
-                            style: TextStyle(fontSize: 15, color: mPrimaryColor),
+                            style:
+                                TextStyle(fontSize: 15, color: mPrimaryColor),
                           ),
                           Container(
                             alignment: Alignment.center,
@@ -350,7 +362,6 @@ class _AddEggScreenState extends State<AddEggScreen> with TickerProviderStateMix
                         ],
                       ),
                     ),
-
                     SizedBox(
                       height: 40,
                     ),
@@ -359,7 +370,6 @@ class _AddEggScreenState extends State<AddEggScreen> with TickerProviderStateMix
                         "assets/images/eggs.png",
                         fit: BoxFit.fitWidth,
                         width: context.width * 0.6,
-
                       ),
                     ),
                     SizedBox(
@@ -385,13 +395,20 @@ class _AddEggScreenState extends State<AddEggScreen> with TickerProviderStateMix
                             );
                             isInputsValid = false;
                           } else {
-                            bool firstEggsValid = int.tryParse(_firstEggs.text) != null;
-                            bool secondEggsValid = int.tryParse(_secondEggs.text) != null;
-                            bool currentValueValid = int.tryParse(_currentValue.toString()) != null;
-                            bool firstEggWeightValid = double.tryParse(_firstEggWeight.text) != null;
-                            bool secondEggWeightValid = double.tryParse(_secondEggWeight.text) != null;
+                            bool firstEggsValid =
+                                int.tryParse(_firstEggs.text) != null;
+                            bool secondEggsValid =
+                                int.tryParse(_secondEggs.text) != null;
+                            bool currentValueValid =
+                                int.tryParse(_currentValue.toString()) != null;
+                            bool firstEggWeightValid =
+                                double.tryParse(_firstEggWeight.text) != null;
+                            bool secondEggWeightValid =
+                                double.tryParse(_secondEggWeight.text) != null;
 
-                            if (!firstEggsValid || !secondEggsValid || !currentValueValid) {
+                            if (!firstEggsValid ||
+                                !secondEggsValid ||
+                                !currentValueValid) {
                               Fluttertoast.showToast(
                                 msg: 'First 2 fields should be integers!',
                                 toastLength: Toast.LENGTH_LONG,
@@ -401,7 +418,8 @@ class _AddEggScreenState extends State<AddEggScreen> with TickerProviderStateMix
                                 textColor: mPrimaryColor,
                               );
                               isInputsValid = false;
-                            } else if (!firstEggWeightValid || !secondEggWeightValid) {
+                            } else if (!firstEggWeightValid ||
+                                !secondEggWeightValid) {
                               Fluttertoast.showToast(
                                 msg: 'Egg weight fields should be numbers!',
                                 toastLength: Toast.LENGTH_LONG,
@@ -455,9 +473,6 @@ class _AddEggScreenState extends State<AddEggScreen> with TickerProviderStateMix
                         child: Text("Add"),
                       ),
                     ),
-
-
-
                     SizedBox(
                       height: 50,
                     )
@@ -470,7 +485,9 @@ class _AddEggScreenState extends State<AddEggScreen> with TickerProviderStateMix
       ),
     ]);
   }
-  Future<void> updateEggs(String id, String firstEgg,String secondEgg, String week,String firstEggWeight,String secondEggWeight) async {
+
+  Future<void> updateEggs(String id, String firstEgg, String secondEgg,
+      String week, String firstEggWeight, String secondEggWeight) async {
     num curFirstValue = 0;
     num curSecondValue = 0;
     num firstValue = int.parse(firstEgg);
@@ -479,90 +496,74 @@ class _AddEggScreenState extends State<AddEggScreen> with TickerProviderStateMix
     num secondWeightValue = double.parse(secondEggWeight);
     try {
       DocumentReference<Map<String, dynamic>> documentReference =
-      FirebaseFirestore.instance
-          .collection('Farmers')
-          .doc(FirebaseAuth.instance.currentUser!.uid)
-          .collection('flock')
-          .doc(id)
-          .collection('NumberofEggs')
-          .doc(week);
+          FirebaseFirestore.instance
+              .collection('Farmers')
+              .doc(FirebaseAuth.instance.currentUser!.uid)
+              .collection('flock')
+              .doc(id)
+              .collection('NumberofEggs')
+              .doc(week);
       FirebaseFirestore.instance.runTransaction((transaction) async {
         DocumentSnapshot<Map<String, dynamic>> snapshot =
-        await transaction.get(documentReference);
+            await transaction.get(documentReference);
         if (!snapshot.exists) {
-
-          documentReference.set({'First GrEgg': firstValue,
-                                 'Second GrEgg': secondValue,
-                                 'First GRWeight': firstWeightValue,
-                                 'Second GRWeight': secondWeightValue});
-
+          documentReference.set({
+            'First GrEgg': firstValue,
+            'Second GrEgg': secondValue,
+            'First GRWeight': firstWeightValue,
+            'Second GRWeight': secondWeightValue
+          });
         } else {
           try {
-
-
-            transaction.update(documentReference,{'First GrEgg': firstValue,
+            transaction.update(documentReference, {
+              'First GrEgg': firstValue,
               'Second GrEgg': secondValue,
               'First GRWeight': firstWeightValue,
-              'Second GRWeight': secondWeightValue});
-
-
-
-          } catch (e) {
-
-          }
+              'Second GRWeight': secondWeightValue
+            });
+          } catch (e) {}
         }
       });
-    } catch (e) {
-
-    }
+    } catch (e) {}
     try {
-
-      num CumFirstWeightVal= firstValue * firstWeightValue;
-      num CumSecondWeightVal= secondValue * secondWeightValue;
-
+      num CumFirstWeightVal = firstValue * firstWeightValue;
+      num CumSecondWeightVal = secondValue * secondWeightValue;
 
       DocumentReference<Map<String, dynamic>> documentReference2 =
-      FirebaseFirestore.instance
-          .collection('Farmers')
-          .doc(FirebaseAuth.instance.currentUser!.uid)
-          .collection('flock')
-          .doc(id)
-          .collection('EggData')
-          .doc('main');
-
+          FirebaseFirestore.instance
+              .collection('Farmers')
+              .doc(FirebaseAuth.instance.currentUser!.uid)
+              .collection('flock')
+              .doc(id)
+              .collection('EggData')
+              .doc('main');
 
       FirebaseFirestore.instance.runTransaction((transaction2) async {
         DocumentSnapshot<Map<String, dynamic>> snapshot2 =
-        await transaction2.get(documentReference2);
+            await transaction2.get(documentReference2);
         print(documentReference2);
         if (!snapshot2.exists) {
-
           print('came here');
-          documentReference2.set({'Cum Gr1Egg Weight': CumFirstWeightVal,
+          documentReference2.set({
+            'Cum Gr1Egg Weight': CumFirstWeightVal,
             'Cum Gr2Egg Weight': CumSecondWeightVal,
           });
-
         } else {
           try {
-
-
             curFirstValue = snapshot2.data()!['Cum Gr1Egg Weight'];
             curSecondValue = snapshot2.data()!['Cum Gr2Egg Weight'];
-            num newValue1= CumFirstWeightVal+curFirstValue;
-            num newValue2= CumSecondWeightVal+curSecondValue;
+            num newValue1 = CumFirstWeightVal + curFirstValue;
+            num newValue2 = CumSecondWeightVal + curSecondValue;
 
-            transaction2.update(documentReference2, {'Cum Gr1Egg Weight': newValue1,
+            transaction2.update(documentReference2, {
+              'Cum Gr1Egg Weight': newValue1,
               'Cum Gr2Egg Weight': newValue2,
             });
-
-          } catch (e) {
-
-          }
+          } catch (e) {}
         }
       });
     } catch (e) {
       //
     }
   }
-
 }
