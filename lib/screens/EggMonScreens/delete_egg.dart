@@ -12,22 +12,21 @@ class DeleteEggScreen extends StatefulWidget {
   final String startDateNavi;
   final String strainNavi;
 
-
-  const DeleteEggScreen({Key? key, required this.id_flock, required this.startDateNavi, required this.strainNavi}) : super(key: key);
+  const DeleteEggScreen(
+      {Key? key,
+      required this.id_flock,
+      required this.startDateNavi,
+      required this.strainNavi})
+      : super(key: key);
 
   @override
   State<DeleteEggScreen> createState() => _DeleteEggScreenState();
 }
 
-class _DeleteEggScreenState extends State<DeleteEggScreen> with TickerProviderStateMixin {
+class _DeleteEggScreenState extends State<DeleteEggScreen>
+    with TickerProviderStateMixin {
   DateTime date =
-  DateTime(DateTime
-      .now()
-      .year, DateTime
-      .now()
-      .month, DateTime
-      .now()
-      .day);
+      DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day);
 
   String selectedWeek = "1";
   List<DropdownMenuItem<String>> dateItems = [];
@@ -52,13 +51,10 @@ class _DeleteEggScreenState extends State<DeleteEggScreen> with TickerProviderSt
 
   @override
   void initState() {
-
     _animationController = AnimationController(
       vsync: this,
       duration: Duration(milliseconds: 500),
     );
-
-
 
     _widget = StreamBuilder<QuerySnapshot>(
         stream: FirebaseFirestore.instance
@@ -75,11 +71,8 @@ class _DeleteEggScreenState extends State<DeleteEggScreen> with TickerProviderSt
             );
           } else {
             for (int i = 0; i < snapshot.data!.docs.length; i++) {
-
-
               String date;
               try {
-
                 date = snapshot.data!.docs[i].id;
 
                 dateItems.add(
@@ -88,34 +81,25 @@ class _DeleteEggScreenState extends State<DeleteEggScreen> with TickerProviderSt
                       date,
                       style: TextStyle(color: mPrimaryColor),
                     ),
-
-
                     value: "$date",
                   ),
                 );
 
                 print(dateItems[0].value);
-
               } catch (e) {
                 //amount = -1;
               }
             }
             //print(dateItems);
             return Container();
-
           }
         });
-
-
-
 
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-
-
     return Stack(children: [
       DrawerMenu(widget.id_flock),
       AnimatedContainer(
@@ -126,7 +110,7 @@ class _DeleteEggScreenState extends State<DeleteEggScreen> with TickerProviderSt
           onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
           child: ClipRRect(
             borderRadius:
-            (toggle) ? BorderRadius.circular(20) : BorderRadius.circular(0),
+                (toggle) ? BorderRadius.circular(20) : BorderRadius.circular(0),
             child: Scaffold(
               appBar: AppBar(
                 leading: IconButton(
@@ -149,8 +133,9 @@ class _DeleteEggScreenState extends State<DeleteEggScreen> with TickerProviderSt
                       }
                       setState(() {});
                     }),
-                title: Text("Delete Eggs".tr
-                  ,style: TextStyle(fontSize: 22),
+                title: Text(
+                  "Delete Eggs".tr,
+                  style: TextStyle(fontSize: 22),
                 ),
                 backgroundColor: mPrimaryColor,
               ),
@@ -191,7 +176,8 @@ class _DeleteEggScreenState extends State<DeleteEggScreen> with TickerProviderSt
                                         border: Border.all(
                                           color: mPrimaryColor,
                                         ),
-                                        borderRadius: BorderRadius.circular(10.0),
+                                        borderRadius:
+                                            BorderRadius.circular(10.0),
                                       ),
                                       child: DropdownButton(
                                           alignment: Alignment.center,
@@ -205,7 +191,8 @@ class _DeleteEggScreenState extends State<DeleteEggScreen> with TickerProviderSt
                                           items: dateItems.toSet().toList(),
                                           onChanged: (newValue) {
                                             setState(() {
-                                              selectedWeek = newValue.toString();
+                                              selectedWeek =
+                                                  newValue.toString();
                                               //Text(selectedDate);
                                               print(selectedWeek);
                                             });
@@ -214,24 +201,28 @@ class _DeleteEggScreenState extends State<DeleteEggScreen> with TickerProviderSt
                                   ),
                                   SizedBox(height: 20),
                                   Padding(
-                                    padding: EdgeInsets.only(left: 10,right: 10),
+                                    padding:
+                                        EdgeInsets.only(left: 10, right: 10),
                                     child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
                                           "Selected Week",
                                           style: TextStyle(
-                                              fontSize: 16, color: mPrimaryColor),
+                                              fontSize: 16,
+                                              color: mPrimaryColor),
                                         ),
                                         Container(
                                           alignment: Alignment.center,
                                           height: 25,
-                                          width: 30.w,
+                                          width: 23.w,
                                           decoration: BoxDecoration(
                                             border: Border.all(
                                               color: mPrimaryColor,
                                             ),
-                                            borderRadius: BorderRadius.circular(10.0),
+                                            borderRadius:
+                                                BorderRadius.circular(10.0),
                                           ),
                                           child: Text(
                                             "${selectedWeek}",
@@ -240,35 +231,37 @@ class _DeleteEggScreenState extends State<DeleteEggScreen> with TickerProviderSt
                                               color: mPrimaryColor,
                                             ),
                                           ),
-                                        )],
+                                        )
+                                      ],
                                     ),
                                   ),
-
                                   StreamBuilder<QuerySnapshot>(
                                       stream: FirebaseFirestore.instance
                                           .collection("Farmers")
-                                          .doc(FirebaseAuth.instance.currentUser!.uid)
+                                          .doc(FirebaseAuth
+                                              .instance.currentUser!.uid)
                                           .collection('flock')
                                           .doc(widget.id_flock)
                                           .collection('NumberofEggs')
                                           .where(FieldPath.documentId,
-                                          isEqualTo: selectedWeek)
+                                              isEqualTo: selectedWeek)
                                           .snapshots(),
                                       builder: (BuildContext context,
-                                          AsyncSnapshot<QuerySnapshot> snapshot) {
+                                          AsyncSnapshot<QuerySnapshot>
+                                              snapshot) {
                                         num amount = -1;
                                         num amount2 = -1;
                                         num amount3 = -1;
                                         num amount4 = -1;
                                         try {
                                           amount = snapshot.data?.docs[0]
-                                          ['First GrEgg'];
+                                              ['First GrEgg'];
                                           amount2 = snapshot.data?.docs[0]
-                                          ['Second GrEgg'];
+                                              ['Second GrEgg'];
                                           amount3 = snapshot.data?.docs[0]
-                                          ['First GRWeight'];
+                                              ['First GRWeight'];
                                           amount4 = snapshot.data?.docs[0]
-                                          ['Second GRWeight'];
+                                              ['Second GRWeight'];
                                           recordedFirstEggs = amount;
                                           recordedSecondEggs = amount2;
                                           recordedFirstEggWeight = amount3;
@@ -278,18 +271,18 @@ class _DeleteEggScreenState extends State<DeleteEggScreen> with TickerProviderSt
                                           amount = -1;
                                         }
                                         if (amount == -1 || amount == 0) {
-                                          return Center(
-
-                                          );
+                                          return Center();
                                         } else {
                                           return Padding(
-                                            padding: EdgeInsets.only(left: 10,right: 10),
+                                            padding: EdgeInsets.only(
+                                                left: 10, right: 10),
                                             child: Column(
                                               children: [
                                                 SizedBox(height: 15),
                                                 Row(
                                                   mainAxisAlignment:
-                                                  MainAxisAlignment.spaceBetween,
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
                                                   children: [
                                                     Text(
                                                       "Recorded First Grade Eggs",
@@ -298,32 +291,33 @@ class _DeleteEggScreenState extends State<DeleteEggScreen> with TickerProviderSt
                                                           color: mPrimaryColor),
                                                     ),
                                                     Container(
-                                                      alignment: Alignment.center,
+                                                      alignment:
+                                                          Alignment.center,
                                                       height: 25,
-                                                      width: 30.w,
+                                                      width: 23.w,
                                                       decoration: BoxDecoration(
                                                         border: Border.all(
                                                           color: mPrimaryColor,
                                                         ),
                                                         borderRadius:
-                                                        BorderRadius.circular(
-                                                            10.0),
+                                                            BorderRadius
+                                                                .circular(10.0),
                                                       ),
                                                       child: Text(
                                                         "${recordedFirstEggs}",
                                                         style: TextStyle(
                                                             fontSize: 16,
-                                                            color: mPrimaryColor),
+                                                            color:
+                                                                mPrimaryColor),
                                                       ),
                                                     ),
-
-
                                                   ],
                                                 ),
                                                 SizedBox(height: 15),
                                                 Row(
                                                   mainAxisAlignment:
-                                                  MainAxisAlignment.spaceBetween,
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
                                                   children: [
                                                     Text(
                                                       "Recorded Second Grade Eggs",
@@ -332,31 +326,33 @@ class _DeleteEggScreenState extends State<DeleteEggScreen> with TickerProviderSt
                                                           color: mPrimaryColor),
                                                     ),
                                                     Container(
-                                                      alignment: Alignment.center,
+                                                      alignment:
+                                                          Alignment.center,
                                                       height: 25,
-                                                      width: 30.w,
+                                                      width: 23.w,
                                                       decoration: BoxDecoration(
                                                         border: Border.all(
                                                           color: mPrimaryColor,
                                                         ),
                                                         borderRadius:
-                                                        BorderRadius.circular(
-                                                            10.0),
+                                                            BorderRadius
+                                                                .circular(10.0),
                                                       ),
                                                       child: Text(
                                                         "${recordedSecondEggs}",
                                                         style: TextStyle(
                                                             fontSize: 16,
-                                                            color: mPrimaryColor),
+                                                            color:
+                                                                mPrimaryColor),
                                                       ),
                                                     ),
-
                                                   ],
                                                 ),
                                                 SizedBox(height: 15),
                                                 Row(
                                                   mainAxisAlignment:
-                                                  MainAxisAlignment.spaceBetween,
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
                                                   children: [
                                                     Text(
                                                       "Recorded first Grade Egg Weight",
@@ -365,31 +361,33 @@ class _DeleteEggScreenState extends State<DeleteEggScreen> with TickerProviderSt
                                                           color: mPrimaryColor),
                                                     ),
                                                     Container(
-                                                      alignment: Alignment.center,
+                                                      alignment:
+                                                          Alignment.center,
                                                       height: 25,
-                                                      width: 30.w,
+                                                      width: 23.w,
                                                       decoration: BoxDecoration(
                                                         border: Border.all(
                                                           color: mPrimaryColor,
                                                         ),
                                                         borderRadius:
-                                                        BorderRadius.circular(
-                                                            10.0),
+                                                            BorderRadius
+                                                                .circular(10.0),
                                                       ),
                                                       child: Text(
                                                         "${recordedFirstEggWeight}",
                                                         style: TextStyle(
                                                             fontSize: 16,
-                                                            color: mPrimaryColor),
+                                                            color:
+                                                                mPrimaryColor),
                                                       ),
                                                     ),
-
                                                   ],
                                                 ),
                                                 SizedBox(height: 15),
                                                 Row(
                                                   mainAxisAlignment:
-                                                  MainAxisAlignment.spaceBetween,
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
                                                   children: [
                                                     Text(
                                                       "Recorded Second Grade Egg Weight",
@@ -398,25 +396,26 @@ class _DeleteEggScreenState extends State<DeleteEggScreen> with TickerProviderSt
                                                           color: mPrimaryColor),
                                                     ),
                                                     Container(
-                                                      alignment: Alignment.center,
+                                                      alignment:
+                                                          Alignment.center,
                                                       height: 25,
-                                                      width: 30.w,
+                                                      width: 23.w,
                                                       decoration: BoxDecoration(
                                                         border: Border.all(
                                                           color: mPrimaryColor,
                                                         ),
                                                         borderRadius:
-                                                        BorderRadius.circular(
-                                                            10.0),
+                                                            BorderRadius
+                                                                .circular(10.0),
                                                       ),
                                                       child: Text(
                                                         "${recordedSecondEggWeight}",
                                                         style: TextStyle(
                                                             fontSize: 16,
-                                                            color: mPrimaryColor),
+                                                            color:
+                                                                mPrimaryColor),
                                                       ),
                                                     ),
-
                                                   ],
                                                 ),
                                               ],
@@ -424,15 +423,11 @@ class _DeleteEggScreenState extends State<DeleteEggScreen> with TickerProviderSt
                                           );
                                         }
                                       }),
-
                                 ],
                               ),
                             );
-
                           }
                         }),
-
-
                     SizedBox(
                       height: 40,
                     ),
@@ -441,7 +436,6 @@ class _DeleteEggScreenState extends State<DeleteEggScreen> with TickerProviderSt
                         "assets/images/eggs.png",
                         fit: BoxFit.fitWidth,
                         width: context.width * 0.6,
-
                       ),
                     ),
                     SizedBox(
@@ -464,9 +458,9 @@ class _DeleteEggScreenState extends State<DeleteEggScreen> with TickerProviderSt
                               backgroundColor: mNewColor3,
                               textColor: mPrimaryColor);
                         },
-
                         style: ElevatedButton.styleFrom(
-                          fixedSize: const Size(180, 50), backgroundColor: mPrimaryColor,
+                          fixedSize: const Size(180, 50),
+                          backgroundColor: mPrimaryColor,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30.0),
                           ),
@@ -489,23 +483,23 @@ class _DeleteEggScreenState extends State<DeleteEggScreen> with TickerProviderSt
       ),
     ]);
   }
+
   Future<void> deleteEggAmount(String id, String week) async {
     //num current = 0;
     //num value = double.parse(amount);
     try {
-
       DocumentReference<Map<String, dynamic>> documentReference =
-      FirebaseFirestore.instance
-          .collection('Farmers')
-          .doc(FirebaseAuth.instance.currentUser!.uid)
-          .collection('flock')
-          .doc(id)
-          .collection('NumberofEggs')
-          .doc(week);
+          FirebaseFirestore.instance
+              .collection('Farmers')
+              .doc(FirebaseAuth.instance.currentUser!.uid)
+              .collection('flock')
+              .doc(id)
+              .collection('NumberofEggs')
+              .doc(week);
 
       FirebaseFirestore.instance.runTransaction((transaction) async {
         DocumentSnapshot<Map<String, dynamic>> snapshot =
-        await transaction.get(documentReference);
+            await transaction.get(documentReference);
 
         if (!snapshot.exists) {
           //print("done 1 befre");
@@ -515,9 +509,7 @@ class _DeleteEggScreenState extends State<DeleteEggScreen> with TickerProviderSt
           //return true;
         } else {
           try {
-
             transaction.delete(documentReference);
-
           } catch (e) {
             //rethrow;
           }
@@ -530,15 +522,15 @@ class _DeleteEggScreenState extends State<DeleteEggScreen> with TickerProviderSt
     try {
       //print("try 2");
       DocumentReference<Map<String, dynamic>> documentReference2 =
-      FirebaseFirestore.instance
-          .collection('Farmers')
-          .doc(FirebaseAuth.instance.currentUser!.uid)
-          .collection('flock')
-          .doc(id);
+          FirebaseFirestore.instance
+              .collection('Farmers')
+              .doc(FirebaseAuth.instance.currentUser!.uid)
+              .collection('flock')
+              .doc(id);
 
       FirebaseFirestore.instance.runTransaction((transaction2) async {
         DocumentSnapshot<Map<String, dynamic>> snapshot2 =
-        await transaction2.get(documentReference2);
+            await transaction2.get(documentReference2);
         print(documentReference2);
         if (!snapshot2.exists) {
           //print("snap 2 noy exist");
@@ -565,5 +557,4 @@ class _DeleteEggScreenState extends State<DeleteEggScreen> with TickerProviderSt
       //
     }
   }
-
 }

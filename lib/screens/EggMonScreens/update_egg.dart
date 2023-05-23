@@ -222,7 +222,7 @@ class _UpdateEggScreenState extends State<UpdateEggScreen>
                                         Container(
                                           alignment: Alignment.center,
                                           height: 25,
-                                          width: 30.w,
+                                          width: 23.w,
                                           decoration: BoxDecoration(
                                             border: Border.all(
                                               color: mPrimaryColor,
@@ -300,7 +300,7 @@ class _UpdateEggScreenState extends State<UpdateEggScreen>
                                                       alignment:
                                                           Alignment.center,
                                                       height: 25,
-                                                      width: 30.w,
+                                                      width: 23.w,
                                                       decoration: BoxDecoration(
                                                         border: Border.all(
                                                           color: mPrimaryColor,
@@ -335,7 +335,7 @@ class _UpdateEggScreenState extends State<UpdateEggScreen>
                                                       alignment:
                                                           Alignment.center,
                                                       height: 25,
-                                                      width: 30.w,
+                                                      width: 23.w,
                                                       decoration: BoxDecoration(
                                                         border: Border.all(
                                                           color: mPrimaryColor,
@@ -370,7 +370,7 @@ class _UpdateEggScreenState extends State<UpdateEggScreen>
                                                       alignment:
                                                           Alignment.center,
                                                       height: 25,
-                                                      width: 30.w,
+                                                      width: 23.w,
                                                       decoration: BoxDecoration(
                                                         border: Border.all(
                                                           color: mPrimaryColor,
@@ -405,7 +405,7 @@ class _UpdateEggScreenState extends State<UpdateEggScreen>
                                                       alignment:
                                                           Alignment.center,
                                                       height: 25,
-                                                      width: 30.w,
+                                                      width: 23.w,
                                                       decoration: BoxDecoration(
                                                         border: Border.all(
                                                           color: mPrimaryColor,
@@ -503,7 +503,7 @@ class _UpdateEggScreenState extends State<UpdateEggScreen>
                           Container(
                             alignment: Alignment.center,
                             height: 25,
-                            width: 30.w,
+                            width: 25.w,
                             decoration: BoxDecoration(
                               border: Border.all(
                                 color: mPrimaryColor,
@@ -532,7 +532,7 @@ class _UpdateEggScreenState extends State<UpdateEggScreen>
                           Container(
                             alignment: Alignment.center,
                             height: 25,
-                            width: 30.w,
+                            width: 25.w,
                             decoration: BoxDecoration(
                               border: Border.all(
                                 color: mPrimaryColor,
@@ -561,7 +561,7 @@ class _UpdateEggScreenState extends State<UpdateEggScreen>
                           Container(
                             alignment: Alignment.center,
                             height: 25,
-                            width: 30.w,
+                            width: 25.w,
                             decoration: BoxDecoration(
                               border: Border.all(
                                 color: mPrimaryColor,
@@ -589,7 +589,7 @@ class _UpdateEggScreenState extends State<UpdateEggScreen>
                           Container(
                             alignment: Alignment.center,
                             height: 25,
-                            width: 30.w,
+                            width: 25.w,
                             decoration: BoxDecoration(
                               border: Border.all(
                                 color: mPrimaryColor,
@@ -617,7 +617,7 @@ class _UpdateEggScreenState extends State<UpdateEggScreen>
                           Container(
                             alignment: Alignment.center,
                             height: 25,
-                            width: 30.w,
+                            width: 25.w,
                             decoration: BoxDecoration(
                               border: Border.all(
                                 color: mPrimaryColor,

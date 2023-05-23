@@ -9,7 +9,6 @@ import '../net/auth.dart';
 import 'drawerMenu.dart';
 import 'griddashboard.dart';
 
-
 class HomeScreen extends StatefulWidget {
   final String farmNavi,
       branchNavi,
@@ -19,8 +18,6 @@ class HomeScreen extends StatefulWidget {
       branchName,
       shedName,
       flockName;
-
-
 
   HomeScreen({
     Key? key,
@@ -61,7 +58,6 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Stack(
-
       children: [
         DrawerMenu(widget.flockNavi),
         AnimatedContainer(
@@ -105,7 +101,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     actions: <Widget>[
                       Container(
                         width: 40,
-                        height:40,
+                        height: 40,
                         child: IconButton(
                           icon: Image.asset('assets/icons/SelectionIcon.png'),
                           onPressed: () {
@@ -113,7 +109,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                    const SelectionScreen()));
+                                        const SelectionScreen()));
                             // Handle button tap
                           },
                         ),
@@ -134,8 +130,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                 (route) => false);
                           },
                           icon: Icon(Icons.logout))
-                    ]
-                ),
+                    ]),
                 body: Stack(
                   children: <Widget>[
                     Container(
