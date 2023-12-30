@@ -51,7 +51,7 @@ class _AddMortalState extends State<AddMortal> with TickerProviderStateMixin {
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            "Add Mortality".tr,
+            "ADD MORTALITY".tr,
             style: TextStyle(fontSize: 16),
           ),
           backgroundColor: mPrimaryColor,

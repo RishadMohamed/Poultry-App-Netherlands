@@ -65,6 +65,7 @@ class LocalString extends Translations {
           'startdate': '   Start Date:',
           'ideal': '   Ideal ',
           'feed': ' feed',
+          'FeedCost': 'Feed Cost',
 
           //home page
           'home': 'Home',
@@ -96,6 +97,12 @@ class LocalString extends Translations {
           'farm details?': ' farm details?',
           'Yes': 'Yes',
           'No': 'No',
+
+          //mortality
+          'MORTALITY': 'MORTALITY',
+          'DELETE MORTALITY': 'DELETE MORTALITY',
+          'UPDATE MORTALITY': 'UPDATE MORTALITY',
+          'ADD MORTALITY': 'ADD MORTALITY',
 
           // farmReg_screen
           'Add Farm': 'Add Farm',
@@ -198,6 +205,7 @@ class LocalString extends Translations {
           'startdate': '   தொடக்க தேதி',
           'ideal': '   ',
           'feed': ' உணவு',
+          'FeedCost': 'உணவு செலவு',
 
           //home
           'home': 'வீடு',
@@ -235,6 +243,12 @@ class LocalString extends Translations {
           'Enter Farm Name': 'பண்ணை பெயரை உள்ளிடவும்',
           'Enter Farm Registration Number': 'பண்ணை பதிவு எண்ணை உள்ளிடவும்',
           'Submit': 'சமர்ப்பிக்க',
+
+          //mortality
+          'MORTALITY': 'இறப்பு',
+          'DELETE MORTALITY': 'இறப்பு நீக்கு',
+          'UPDATE MORTALITY': 'இறப்பு மேம்படுத்தல்',
+          'ADD MORTALITY': 'இறப்பு கூட்டு',
 
           //branch_view
           ' branches': ' கிளைகள்',
@@ -343,6 +357,7 @@ class LocalString extends Translations {
           'startdate': '   ආරම්භක දිනය',
           'ideal': '   කදිම ',
           'feed': ' ආහාර',
+          'FeedCost': 'ආහාර පිරිවැය',
 
           //home
           'home': 'නිවස',
@@ -381,6 +396,12 @@ class LocalString extends Translations {
           'Enter Farm Registration Number':
               'ගොවිපලේ ලියාපදිංචි අංකය ඇතුලත් කරන්න',
           'Submit': 'සුරකින්න',
+
+          //mortality
+          'MORTALITY': 'මරණ අනුපාතය',
+          'DELETE MORTALITY': 'මරණ අනුපාතය මකා දමන්න',
+          'UPDATE MORTALITY': 'මරණ අනුපාතය යාවත්කාලීන',
+          'ADD MORTALITY': 'මරණ අනුපාතය එකතු කරන්න',
 
           // branch_view
           ' branches': ' ශාඛා',

@@ -99,14 +99,11 @@ class _FeedScreenState extends State<FeedScreen> with TickerProviderStateMixin {
                             if (!snapshot.hasData) {
                               return CircularProgressIndicator();
                             } else {
-
                               startDate = snapshot.data?.docs[0]['startdays'];
                               strainType = snapshot.data?.docs[0]['strain'];
 
                               updateFeedIntake(args.flockID, 0.4.toString(),
                                   50.toString(), startDate);
-
-
                             }
 
                             return Container(); // Your grid code.
@@ -119,7 +116,6 @@ class _FeedScreenState extends State<FeedScreen> with TickerProviderStateMixin {
                           "assets/images/chickFeeding.png",
                           fit: BoxFit.fitWidth,
                           width: context.width * 0.5,
-
                         ),
                       ),
                       SizedBox(
@@ -140,7 +136,8 @@ class _FeedScreenState extends State<FeedScreen> with TickerProviderStateMixin {
                             );
                           },
                           style: ElevatedButton.styleFrom(
-                            fixedSize: const Size(200, 50), backgroundColor: mPrimaryColor,
+                            fixedSize: const Size(200, 50),
+                            backgroundColor: mPrimaryColor,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30.0),
                             ),
@@ -173,7 +170,8 @@ class _FeedScreenState extends State<FeedScreen> with TickerProviderStateMixin {
                             );
                           },
                           style: ElevatedButton.styleFrom(
-                            fixedSize: const Size(200, 50), backgroundColor: mBackgroundColor,
+                            fixedSize: const Size(200, 50),
+                            backgroundColor: mBackgroundColor,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30.0),
                             ),
@@ -212,7 +210,8 @@ class _FeedScreenState extends State<FeedScreen> with TickerProviderStateMixin {
                             );
                           },
                           style: ElevatedButton.styleFrom(
-                            fixedSize: const Size(200, 50), backgroundColor: mPrimaryColor,
+                            fixedSize: const Size(200, 50),
+                            backgroundColor: mPrimaryColor,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30.0),
                             ),
@@ -229,7 +228,6 @@ class _FeedScreenState extends State<FeedScreen> with TickerProviderStateMixin {
                       SizedBox(
                         height: 20,
                       ),
-
                       Center(
                         child: ElevatedButton(
                           onPressed: () {
@@ -246,7 +244,8 @@ class _FeedScreenState extends State<FeedScreen> with TickerProviderStateMixin {
                             );
                           },
                           style: ElevatedButton.styleFrom(
-                            fixedSize: const Size(200, 50), backgroundColor: mBackgroundColor,
+                            fixedSize: const Size(200, 50),
+                            backgroundColor: mBackgroundColor,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30.0),
                             ),
@@ -259,7 +258,7 @@ class _FeedScreenState extends State<FeedScreen> with TickerProviderStateMixin {
                             ),
                           ),
                           child: Text(
-                            "Feed Cost".tr,
+                            "FeedCost".tr,
                             style: TextStyle(
                               color: mPrimaryColor,
                               fontSize: 17,
@@ -326,14 +325,11 @@ class _FeedScreenState extends State<FeedScreen> with TickerProviderStateMixin {
     } catch (e) {
       // return false;
     }
-    try {
-
-    } catch (e) {
+    try {} catch (e) {
       //
     }
   }
 }
-
 
 TextFormField reusableTextField3(
     String text,

@@ -52,7 +52,7 @@ class _DeleteMortalState extends State<DeleteMortal>
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            "addfeedIntake".tr,
+            "DELETE MORTALITY".tr,
             style: TextStyle(fontSize: 16),
           ),
           backgroundColor: mPrimaryColor,

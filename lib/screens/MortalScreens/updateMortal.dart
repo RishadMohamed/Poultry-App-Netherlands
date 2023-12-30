@@ -52,7 +52,7 @@ class _UpdateMortalState extends State<UpdateMortal>
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            "addfeedIntake".tr,
+            "UPDATE MORTALITY".tr,
             style: TextStyle(fontSize: 16),
           ),
           backgroundColor: mPrimaryColor,
