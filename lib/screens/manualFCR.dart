@@ -254,7 +254,7 @@ class _FCRManualScreenState extends State<FCRManualScreen> {
                           (noBag *
                                   avgBagWeight *
                                   1000 /
-                                  ((startCount - mortal) * eggWeight))
+                                  ((startCount - mortal) * eggWeight / 12))
                               .toStringAsFixed(4),
                       style: TextStyle(
                           color: mNewColor,
